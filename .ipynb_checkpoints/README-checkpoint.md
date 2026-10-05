@@ -6,9 +6,12 @@ This repository contains the algorithm experimentation for DFT calculation with 
 
 ## Getting started
 
-1. To install DFT-toolkit from source, clone this repository from [github](https://github.com/dindagustiayu): 
+1. To install DFT-toolkit from source, clone this repository from [github](https://github.com/dindagustiayu):
+   
+```bash
+git clone https://github.com/dindagustiayu/DFT-toolkit.git
 
-> git clone https://github.com/dindagustiayu/DFT-toolkit.git
+```
 
 2. you can explore the GitHub-Colab for tutorials, and the folders for example inputs, outputs and suppelementary reference.
 3. Follow the example code and adapt them to your own data.
