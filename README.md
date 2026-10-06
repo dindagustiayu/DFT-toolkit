@@ -13,7 +13,7 @@ git clone https://github.com/dindagustiayu/DFT-toolkit.git
 
 ```
 
-2. you can explore the GitHub-Colab for tutorials, and the folders for example inputs, outputs and suppelementary reference.
+2. You can explore the GitHub-Colab for tutorials, and the folders for example inputs, outputs and suppelementary reference.
 3. Follow the example code and adapt them to your own data.
 
 ## Scope
