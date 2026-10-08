@@ -27,4 +27,19 @@ language = 'English'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+# Sidebar and navigation options
+html_theme_options = {
+    "navigation_depth": 2,    
+    "collapse_navigation": True,
+    "sticky_navigation": True,
+    "titles_only": False,
+}
 
+# link at the top right of each page
+html_context = {
+    "display_github": True,
+    "github_user": "YOUR_GITHUB_USERNAME",
+    "github_repo": "DTF-toolkit",
+    "github_version": "main",  
+    "conf_py_path": "/docs/",
+}
