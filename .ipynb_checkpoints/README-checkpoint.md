@@ -6,22 +6,22 @@ This repository contains the algorithm experimentation for DFT calculation with 
 
 ## Getting started
 
-1. To install DFT-toolkit from source, clone this repository from [github](https://github.com/dindagustiayu):
+1. To install DFT-toolkit from source, fork this repository from [github](https://github.com/dindagustiayu):
    
 ```bash
-git clone https://github.com/dindagustiayu/DFT-toolkit.git
+https://github.com/dindagustiayu/DFT-toolkit.git
 
 ```
 
-2. you can explore the GitHub-Colab for tutorials, and the folders for example inputs, outputs and suppelementary reference.
+2. You can explore the GitHub-Colab for tutorials, and the folders for example inputs, outputs and suppelementary reference.
 3. Follow the example code and adapt them to your own data.
 
 ## Scope
 
 THe following chemical properties are recalculated and compared with the published data:
 
-- Molecular structure: geometry optimization, bond lengths, angles and dihedrals.
-- Vibrational properties: harmoniq frequencies, IR Sprectra, and zero-point energy.
+- Molecular structure: geometry optimization, bond lengths, angles and dihedral constraints.
+- Vibrational properties: harmoniq frequencies, vibrational sprectra (IR and Raman Spectroscopy), and zero-point energy correction.
 - Transition energies: electronic excitation energies and UV-Vis spectra using TD-DFT.
 
 ## Computational details
@@ -29,7 +29,7 @@ THe following chemical properties are recalculated and compared with the publish
 - Software: [VASP](https://vasp.at/info/about/), [QuantumESPRESSO](https://www.quantum-espresso.org/), [abinit](https://www.abinit.org/), [Gaussian](https://gaussian.com/), [PySCF](https://pyscf.org/), [Psi4](https://psicode.org/), and [geomeTRIC](https://geometric.readthedocs.io/).
 - Functionals: LDA (BLYP), GGA (M06L), hybrid GGA (B3LYP).
 - Basis Sets: STO-3G, 3-21G, 4-31G, 6-31G, 6311G, aug-cc-p-V6Z
-- Solvation model: PCM, COSMO.
+- Solvation model: PCM and COSMO.
 
 ## Workflow
 
