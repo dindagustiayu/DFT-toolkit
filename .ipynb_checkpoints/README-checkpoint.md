@@ -46,12 +46,14 @@ Suggestions, issues, and pull request are welcome. If you find an error or have 
 
 ## Contact
 
-Email me at[materials@dindagustiayu.com](mailto:materials@dindagustiayu.com)
+Email me at [materials@dindagustiayu.com](mailto:materials@dindagustiayu.com) or [dindagustiayuedu@gamil.com](mailto:dindagustiayuedu@gmail.com)
 
 ## License
 
-CC BY-NC 2026 Dinda Gusti Ayu
-
-
+© Copyright 2026 By Dinda Gusti Ayu
+DFT toolkit codes is licensed under [MIT licensed](https://mit-license.org/)
+<br>
+![](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
+DFT toolkit documentation is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
 

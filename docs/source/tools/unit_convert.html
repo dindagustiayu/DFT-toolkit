@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Energy Units</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2933;
+    --border: #3a4552;
+    --head-bg: #eef1f5;
+    --link: #7b4a9e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161a1f;
+      --text: #e4e8ec;
+      --border: #6b7785;
+      --head-bg: #232a32;
+      --link: #c39be0;
+    }
+  }
+  body {
+    margin: 0;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .wrap { overflow-x: auto; max-width: 1100px; margin: 0 auto; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 820px;
+  }
+  caption {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-bottom: none;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 8px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+  thead th { background: var(--head-bg); text-align: center; }
+  tbody th { background: var(--head-bg); text-align: center; vertical-align: middle; }
+  .ref { margin-top: 12px; font-size: 0.95rem; }
+  .ref a { color: var(--link); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <caption>Energy Units</caption>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Hartree<br></th>
+        <th scope="col">eV</th>
+        <th scope="col">cm<sup>-1</sup></th>
+        <th scope="col">kcal/mol</th>
+        <th scope="col">kJ/mol</th>
+        <th scope="col">Kelvin</th>
+        <th scope="col">J</th>
+        <th scope="col">Hz</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Hartree</th>
+        <td>1</td>
+        <td>27.2107</td>
+        <td>219 474.63</td>
+        <td>627.503</td>
+        <td>2 625.5</td>
+        <td>315 777.</td>
+        <td>43.60 x 10<sup>-19</sup></td>
+        <td>6.57966 x 10<sup>+15</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">eV</th>
+        <td>0.0367502</td>
+        <td>1</td>
+        <td>8 065.73</td>
+        <td>23.060 9</td>
+        <td>96.486 9</td>
+        <td>11 604.9</td>
+        <td>1.602 10 x 10<sup>-19</sup></td>
+        <td>2.418 04 x 10<sup>+14</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">cm<sup>-1</sup></th>
+        <td>4.556 33 x 10<sup>-6</sup></td>
+        <td>1.239 81 x 10<sup>-4</sup></td>
+        <td>1</td>
+        <td>0.002 859 11</td>
+        <td>0.011 962 7</td>
+        <td>1.428 79</td>
+        <td>1.986 30 x 10<sup>-23</sup></td>
+        <td>2.997 93 x 10<sup>+10</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">kcal/mol</th>
+        <td>0.001 593 62</td>
+        <td>0.043 363 4</td>
+        <td>349.757</td>
+        <td>1</td>
+        <td>4.18400</td>
+        <td>503.228</td>
+        <td>6.95 x 10<sup>-21</sup></td>
+        <td>1.048 54 x 10<sup>+13</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">kJ/mol</th>
+        <td>0.000 380 88</td>
+        <td>0.010 364 10</td>
+        <td>83.593</td>
+        <td>0.239001</td>
+        <td>1</td>
+        <td>120.274</td>
+        <td>1.66 x 10<sup>-21</sup></td>
+        <td>2.506 07 x 10<sup>+12</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">Kelvin</th>
+        <td>0.000 003 166 78</td>
+        <td>0.000 086 170 5</td>
+        <td>0.695 028</td>
+        <td>0.001 987 17</td>
+        <td>0.008 314 35</td>
+        <td>1</td>
+        <td>1.380 54 x 10<sup>-23</sup></td>
+        <td>2.083 64 x 10<sup>+10</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">J</th>
+        <td>2.294 x 10<sup>+17</sup></td>
+        <td>6.241 81 x 10<sup>+18</sup></td>
+        <td>5.034 45 x 10<sup>+22</sup></td>
+        <td>1.44 x 10<sup>+20</sup></td>
+        <td>6.02 x 10<sup>+20</sup></td>
+        <td>7.243 54 x 10<sup>+22</sup></td>
+        <td>1</td>
+        <td>1.509 30 x 10<sup>+33</sup></td>
+      </tr>
+      <tr>
+        <th scope="row">Hz</th>
+        <td>1.519 83 x 10<sup>-16</sup></td>
+        <td>4.135 58 x 10<sup>-15</sup></td>
+        <td>3.335 65 x 10<sup>-11</sup></td>
+        <td>9.537 02 x 10<sup>-14</sup></td>
+        <td></td>
+        <td>4.799 30 x 10<sup>-11</sup></td>
+        <td>6.625 61 x 10<sup>-34</sup></td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="ref">* Ref: <a href="https://physics.nist.gov/cuu/Constants/energy.html">NIST Energy Equivalents</a></p>
+</div>
+</body>
+</html>
