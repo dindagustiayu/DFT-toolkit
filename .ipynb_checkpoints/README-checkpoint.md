@@ -36,7 +36,7 @@ THe following chemical properties are recalculated and compared with the publish
 The workflow is following the steps in this illustration.
 
 <div align='center'>
-    <img src ="supp_reference/DFT_workflow.jpg" width="400">
+    <img src ="supp_reference/DFT_workflo.jpg" width="400">
 </div>
 
 
@@ -50,7 +50,7 @@ Email me at [materials@dindagustiayu.com](mailto:materials@dindagustiayu.com) or
 
 ## License
 
-© Copyright 2026 By Dinda Gusti Ayu
+© Copyright 2026 By Dinda Gusti Ayu <br>
 DFT toolkit codes is licensed under [MIT license](https://mit-license.org/) <br>
 DFT toolkit documentation is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
