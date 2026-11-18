@@ -91,7 +91,7 @@ conf = rd.GetConformer()
 T.GetAngleDeg(conf, 1, 2, 3)
 
 
-# Next, we run frequency to check that the forces (first derivatives) are near zero (stationary point is minimum) or saddle point. A mimimum has no imaginary frequencies and a saddle point has at least one.
+# Next, we run frequency to check that the forces (first derivatives) are near zero (stationary point is minimum). A mimimum has no imaginary frequencies and a saddle point has at least one.
 
 # Frequency
 from pyscf import gto, scf

@@ -151,7 +151,7 @@ cation_energy = mf.kernel()
 (neutral_energy - cation_energy) * 27.2114
 
 
-# Next, we run frequency to check that the forces (first derivatives) are near zero (stationary point is minimum) or saddle point. A mimimum has no imaginary frequencies and a saddle point has at least one. A structure that fails and can not be used for TD-DFT or other properties.
+# Next, we run frequency to check that the forces (first derivatives) are near zero (stationary point is minimum) or zero saddle point. A mimimum has no imaginary frequencies, and a structure can be used for TD-DFT or other properties.
 
 # Frequency
 from pyscf import gto, scf

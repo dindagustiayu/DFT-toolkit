@@ -2,14 +2,12 @@
 # coding: utf-8
 
 # ---
-# title: Practice
+# title: TD-DFT calculation
 # date: "2026-09-26"
 # ---
 # 
 # You will reproduce rsults from the article [ J. Mater. Chem. C, 2016,4, 2931-2935](https://doi.org/10.1039/C5TC03188E). The article contains results from experiments and computations. The molecule investigated is 4-amino-2,2'bipyridine. Perform all our calculations with __B3LYP__ functional and basis set __6-31G**__. See below for graphical abstract.
-# 
-# <img src = "supp_reference/figure_4.png" width = "300">
-# 
+
 
 # ## Install Packages
 # 
@@ -18,9 +16,6 @@
 # ! pip install rdkit
 # ! pip install geometric
 # ```
-
-# In[1]:
-
 
 # import directories 
 from rdkit import Chem
@@ -32,9 +27,6 @@ IPythonConsole.drawOptions.addAtomIndices = True
 
 # First, we will generate the 3D structure of the molecule [4-amino-2,2'bipyridine](https://www.chemspider.com/Chemical-Structure.1039202.html), CAS NUMBER: 14151-21-4.
 
-# In[2]:
-
-
 # 3D format from C10H9N3
 smiles = "N1=C(C=C(C=C1)N)C1=NC=CC=C1"
 mol = Chem.MolFromSmiles(smiles)
@@ -45,9 +37,6 @@ mol
 
 
 # Now, we optimize the structure in gas phase (not solvent effect) and run frequency calculations to confirm convergence.
-
-# In[2]:
-
 
 # Geometry Optimization
 from pyscf import gto, scf
@@ -68,9 +57,6 @@ mol_eq = optimize(mf)
 mol_eq
 
 
-# In[3]:
-
-
 conv_params = {
     'convergence_energy': 1e-6, # Eh
     'convergence_grms': 3e-4,   # Eh/Bohr
@@ -81,15 +67,8 @@ conv_params = {
 
 mol_eq = optimize(mf, **conv_params)
 
-
-# In[4]:
-
-
 # save the optimized geometry for visualization
 mol_eq.tofile("opt_C10H9N3.xyz")
-
-
-# In[4]:
 
 
 # SCF Energy
@@ -111,22 +90,13 @@ neutral_energy = mf.kernel()
 
 # Create the MOs (Moelcular Orbitals) and compare your results with figure S10 in the SI.
 
-# In[5]:
-
-
 # total number of electrons
 n = mol.tot_electrons()
 n
 
 
-# In[6]:
-
-
 # display all orbitals
 mf.mo_energy
-
-
-# In[7]:
 
 
 # HOMO is n/2 orbital. But python index starts from 0
@@ -134,14 +104,8 @@ homo = mf.mo_energy[int(n/2) - 1]
 homo
 
 
-# In[8]:
-
-
 # The unit of energy is Hartree. To convert to eV
 homo * 27.2114
-
-
-# In[9]:
 
 
 # import the definitions
@@ -154,9 +118,6 @@ with open('C10H9N3.molden', 'w') as f1:
 
 
 # Next, run calculations for charged system.
-
-# In[ ]:
-
 
 # Run single-point energy for cation of C10H9N3
 
@@ -184,19 +145,13 @@ cation_energy = mf.kernel()
 
 # Now that we have total energy of neutral molecule and cationic molecule, we can compute ionization energy.
 
-# In[12]:
-
-
 # Ionization is the difference in energies
 # we convert to eV
 
 (neutral_energy - cation_energy) * 27.2114
 
 
-# Next, we run frequency to check that the forces (first derivatives) are near zero (stationary point is minimum) or saddle point. A mimimum has no imaginary frequencies and a saddle point has at least one. A structure that fails and can not be used for TD-DFT or other properties.
-
-# In[1]:
-
+# Next, we run frequency to check that the forces (first derivatives) are near zero (stationary point is minimum) or zero saddle point. A mimimum has no imaginary frequencies. A structure that fails and can not be used for TD-DFT or other properties.
 
 # Frequency
 from pyscf import gto, scf
@@ -215,10 +170,6 @@ mf.xc = 'b3lyp'
 mf.run()
 hessian = mf.Hessian().kernel()
 
-
-# In[3]:
-
-
 # compute frequency
 from pyscf.hessian import thermo
 
@@ -228,9 +179,6 @@ freq_info["freq_wavenumber"]
 
 
 # To compare absorption spectrum in Figure S11 of the SI, run TDDFT calculations in chloroform with the optimized structure.
-
-# In[5]:
-
 
 # Import package
 from pyscf import gto, scf, dft, tddft
@@ -261,9 +209,6 @@ td.kernel()
 
 # Analyze to show a table of excitations
 td.analyze()
-
-
-# In[6]:
 
 
 # Plot spectrum
@@ -310,9 +255,6 @@ def plot_absorption(td_obj, step = 0.01, sigma = 0.05):
 
 # Plot the absorption from td
 plot_absorption(td)
-
-
-# In[ ]:
 
 
 

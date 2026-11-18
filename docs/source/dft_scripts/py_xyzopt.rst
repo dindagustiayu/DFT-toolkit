@@ -1,7 +1,12 @@
-xyzOPT.py
+xyzopt.py
 ========
 
 This page contains a Python script to optimize the molecular geometry and save the XYZ coordinates of the molecule in .xyz format. 
+
+.. note::
+
+   This script requires `geomeTRIC <https://geometric.readthedocs.io/en/latest/>`_ Python library to update the nuclear coordinates in translation-rotation internal coordinates (TRIC) until the convergence criteria for energy change, gradient and atomic displacement successive steps all fall below prescribed convergence threshold (small enough).
+
 
 .. code_block:: python
 
@@ -15,11 +20,11 @@ This page contains a Python script to optimize the molecular geometry and save t
     # Create the pyscf molecule
     mol = gto.M(atom="mol.xyz")
                 
-    mol.basis = "6-31+G**"
+    mol.basis = "------"
     
     # set the functional
     mf = mol.KS()
-    mf.xc = 'b3lyp'
+    mf.xc = '-----'
     
     # Run optimization calculations
     conv_params = {
@@ -35,7 +40,7 @@ This page contains a Python script to optimize the molecular geometry and save t
     # save the optimized geometry in XYZ format
     mol_eq.tofile("opt_mol.xyz")
 
-For example the file for 2-Chloro-3-quinolinecarboxaldehyde molecule:
+For example the optimize file OF 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:
 
 .. code-block:: text
 

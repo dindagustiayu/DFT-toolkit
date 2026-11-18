@@ -51,9 +51,7 @@ Email me at [materials@dindagustiayu.com](mailto:materials@dindagustiayu.com) or
 ## License
 
 © Copyright 2026 By Dinda Gusti Ayu
-DFT toolkit codes is licensed under [MIT licensed](https://mit-license.org/)
-<br>
-![](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
+DFT toolkit codes is licensed under [MIT license](https://mit-license.org/) <br>
 DFT toolkit documentation is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
 
