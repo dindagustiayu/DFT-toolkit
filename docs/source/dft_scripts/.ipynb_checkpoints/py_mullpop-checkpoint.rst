@@ -1,4 +1,4 @@
-Mulliken Atomic Charge
+pyscf tools for Mulliken atomic charge
 ========
 
 This page contains a Python script to calculate a Mulliken atomic charges on the SCF density.

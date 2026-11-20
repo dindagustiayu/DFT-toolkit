@@ -1,4 +1,4 @@
-Thermodynamic Properties
+calculate thermodynamics
 ========
 
 This page contains a Python script to calculate the thermodynamic properties using the RRHO and ideal gas approximations.

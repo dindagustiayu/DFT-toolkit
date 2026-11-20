@@ -1,4 +1,4 @@
-echarge.py
+calculate ionization
 ========
 
 This page contains a Python script to calculate the total electronic energies of a molecular system in three charge states (neutal, cationic, and anionic. 

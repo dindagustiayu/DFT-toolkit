@@ -30,6 +30,7 @@ Scripts and codes:
    :maxdepth: 3
 
    scripts/dft.rst
+   scripts/spect.rst
    scripts/ml.rst
    scripts/python.rst
 

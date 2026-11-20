@@ -1,4 +1,4 @@
-hesfreq.py
+pyscf hessian
 ========
 
 This page contains a Python script to calculate vibrational frequency (a stationary point) of a molecular system on the potential energy surface. 
@@ -6,6 +6,10 @@ This page contains a Python script to calculate vibrational frequency (a station
 .. important::
 
    Check that the forces (first derivatives) are near zero (stationary point is minimum). A mimimum has no imaginary frequencies and a saddle point has at least one.
+
+
+hesfreq.py
+----------
 
 
 .. code_block:: python

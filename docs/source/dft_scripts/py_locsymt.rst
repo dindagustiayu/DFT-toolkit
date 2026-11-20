@@ -1,4 +1,4 @@
-locsymt.py
+compute .fchk file
 ========
 
 This page contains a Python script to construct local symmetry coordinates and describe its internal motions.
@@ -8,6 +8,9 @@ This page contains a Python script to construct local symmetry coordinates and d
 
    This script require the vibrational frequency results (normal modes or Hessian). It sets up the tranformation matrix between Cartesian displacements and local symmetry coordinates, which are constructed from the internal coodinates (bond stretches, angle bends, and torsion) of the bonded atoms.
 
+
+locsymt.py
+---------
 
 .. code_block:: python
 
@@ -27,7 +30,7 @@ This page contains a Python script to construct local symmetry coordinates and d
     coords = mol.atom_coords().flatten()
     mass = mol.atom_mass_list()
     
-    # set block for VEDA
+    # set block for analysis
     def block(f, name, type, data):
         f.write(f"{name: <40} {type} N={len(data):12d}\n")
         n = 6 if type == 'I' else 5
@@ -35,7 +38,7 @@ This page contains a Python script to construct local symmetry coordinates and d
             row = data[i:i+n]
             f.write("".join(f"{x:12d}" if type == 'I' else f"{x:16.8E}" for x in row) + "\n")
     
-    with open("freq_C10H6ClNO.fchk", "w") as f:
+    with open("freq_mol.fchk", "w") as f:
         f.write("Hessian calculation \n")
         f.write("Frequency B3LYP/6-31+G** \n")
         f.write(f"{'Number of atoms':<40} I {N_atom: 12d} \n")

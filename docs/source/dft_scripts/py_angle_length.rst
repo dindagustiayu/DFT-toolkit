@@ -1,4 +1,4 @@
-Bond and angle lengths
+calculate interatomic distance
 ========
 
 This page contains a Python script to measure the bond lengths and bond angles of a molecule from its optimized XYZ geometry using RDKit.

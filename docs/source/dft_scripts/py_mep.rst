@@ -1,4 +1,4 @@
-mep.py
+density dan potential MEP 3D
 ========
 
 This page contains a Python script to calculate the molecular electrostatic potential (MEP).
@@ -8,6 +8,9 @@ This page contains a Python script to calculate the molecular electrostatic pote
 
    This script performs a SCF calculation to obtain the ground-state electron density, and evaluates the electrostatic potential on a 3D grid as the sum of the nuclear and electronic contributions. The result in ``.cube`` format to identify nulceaphilic and electrophilic sites.
 
+
+mep.py
+------
 
 .. code_block:: python
 
