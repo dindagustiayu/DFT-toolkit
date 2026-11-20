@@ -12,6 +12,7 @@ This page contains a Python script to calculate vibrational frequency (a station
 
     #!/usr/bin/env python
     # coding: utf-8
+    # edit by materials@dindagustiayu.com
 
     # import directories 
     from pyscf import gto, scf

@@ -7,6 +7,7 @@ This page contains a Python script to create a 3D format structure of molecule f
 
     #!/usr/bin/env python
     # coding: utf-8
+    # edit by materials@dindagustiayu.com
 
     # import directories 
     from rdkit import Chem
@@ -17,7 +18,7 @@ This page contains a Python script to create a 3D format structure of molecule f
 
 
     # 3D format from molecule
-    smiles = "YOUR-SMILES-MOLECULE-"
+    smiles = "YOUR-SMILES-MOLECULE"
     mol = Chem.MolFromSmiles(smiles)
     mol = Chem.AddHs(mol)
     Chem.AllChem.EmbedMolecule(mol)

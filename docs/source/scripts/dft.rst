@@ -34,4 +34,10 @@ Scripts
     dft_scripts/py_ksscf.rst
     dft_scripts/py_xyzopt.rst
     dft_scripts/py_hesfreq.rst
-    
+    dft_scripts/py_molden.rst
+    dft_scripts/py_echarge.rst
+    dft_scripts/py_angle_length.rst
+    dft_scripts/py_locsymt.rst
+    dft_scripts/py_mep.rst
+    dft_scripts/py_mullpop.rst
+    dft_scripts/py_therchem.rst

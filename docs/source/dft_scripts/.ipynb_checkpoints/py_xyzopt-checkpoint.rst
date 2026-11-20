@@ -12,6 +12,7 @@ This page contains a Python script to optimize the molecular geometry and save t
 
     #!/usr/bin/env python
     # coding: utf-8
+    # edit by materials@dindagustiayu.com
 
     # import directories 
     from pyscf import gto, scf
@@ -69,4 +70,4 @@ For example the optimize file OF 2-Chloro-3-quinolinecarboxaldehyde molecule cal
 
 .. container:: center-btn
 
-   :download: `Download optimization file: opt_C10H6ClNO.xyz <optimization_file/opt_C10H6ClNO.xyz`
+   :download: `Download optimization file: opt_C10H6ClNO.xyz <optimization_file/opt_C10H6ClNO.xyz>`_

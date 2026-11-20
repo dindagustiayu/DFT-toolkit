@@ -12,10 +12,10 @@ This page contains a Python script to calculate self-consistent field (SCF) ener
 
     #!/usr/bin/env python
     # coding: utf-8
+    # edit by materials@dindagustiayu.com
 
     # import directories 
     from pyscf import gto, scf
-    from pyscf.geomopt.geometric_solver import optimize
     
     # Create the pyscf molecule
     mol = gto.M(atom="mol.xyz")
