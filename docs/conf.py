@@ -16,8 +16,9 @@ release = '2026'
 
 extensions = ['myst_parser']
 
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+templates_path = ['source/_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**/.ipynb_checkpoints']
+html_static_path = ['source/_static']
 
 language = 'en'
 
