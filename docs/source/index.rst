@@ -14,7 +14,11 @@ About me:
 
    me
 
-.. toctree::
+Tools:
+-------
 
-   usage
-   api
+.. toctree::
+   :maxdepth: 1
+
+   tools/periodic_table.rst
+   tools/unit_convert.rst
