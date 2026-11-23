@@ -48,7 +48,7 @@ html_context = {
     "github_user": "dindagustiayu",
     "github_repo": "DTF-toolkit",
     "github_version": "main",  
-    "conf_py_path": "/source/",
+    "conf_py_path": "/docs/source/",
 }
 
 
