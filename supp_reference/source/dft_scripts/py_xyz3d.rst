@@ -23,6 +23,7 @@ This page contains a Python script to create a 3D format structure of molecule f
     mol = Chem.AddHs(mol)
     Chem.AllChem.EmbedMolecule(mol)
     Chem.AllChem.MolToXYZFile(mol, "mol.xyz")
+    Chem.AllChem.MolToFile(mol, "mol.svg", size=(500, 500))
     mol
 
 

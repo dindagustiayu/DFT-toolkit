@@ -11,7 +11,7 @@ Now, we can calculate and simulate the UV, IR, and Raman spectra using Python pa
 This page contains scripts for practical aspects of DFT and TD-DFT implementations to simulate vibrational spectra.
 
 
-Python scripts
+Scripts
 --------------
 
     vib_scripts/py_tddft.rst

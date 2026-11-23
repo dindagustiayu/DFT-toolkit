@@ -1,58 +1,22 @@
-.. DFT Toolkit documentation master file, created by
-   sphinx-quickstart on Thu Oct  8 08:53:12 2026.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to Lumache's documentation!
+===================================
 
-DFT Toolkit documentation!
-=========================
+**Lumache** (/lu'make/) is a Python library for cooks and food lovers
+that creates recipes mixing random ingredients.
+It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
+and offers a *simple* and *intuitive* API.
 
-About me:
-------
+Check out the :doc:`usage` section for further information, including
+how to :ref:`installation` the project.
 
-.. toctree::
-   :maxdepth: 1
+.. note::
 
-   me.rst
+   This project is under active development.
 
-Tools:
-------
-
-.. toctree::
-   :maxdepth: 1
-
-   tools/periodic_table.rst
-   tools/unit_convert.rst
-
-Scripts and codes:
-------
+Contents
+--------
 
 .. toctree::
-   :maxdepth: 3
 
-   scripts/dft.rst
-   scripts/spect.rst
-   scripts/ml.rst
-   scripts/python.rst
-
-Tutorials:
-------
-
-.. toctree::
-   :maxdepth: 3
-
-   tutorials/latex.rst
-
-Links:
-------
-
-   **Reference Manager**
-   `Zotero <>`_
-
-Supports:
-------
-
-   **This website is created using Sphinx**
-
-   `Here is a simple tutor of Sphinx <https://pythonhosted.org/an_example_pypi_project/sphinx.html>`_
-
-   
+   usage
+   api
