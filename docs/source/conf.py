@@ -1,54 +1,35 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+# -- Project information
 
-project = 'DFT Toolkit'
-copyright = '2026, Dinda Gusti Ayu'
-author = 'Dinda Gusti Ayu'
-release = '2026'
+project = 'Lumache'
+copyright = '2021, Graziella'
+author = 'Graziella'
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+release = '0.1'
+version = '0.1.0'
 
-extensions = ['myst_parser']
+# -- General configuration
 
+extensions = [
+    'sphinx.ext.duration',
+    'sphinx.ext.doctest',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
+]
 
-# templates_path = ['source/_templates']
-root_doc = 'source/index'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**/.ipynb_checkpoints']
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3/', None),
+    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+}
+intersphinx_disabled_domains = ['std']
 
-language = 'en'
+templates_path = ['_templates']
 
-# source_suffix = {
-#    ".rst": "restructuredtext",
-#   ".md": "markdown",
-# }
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+# -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['source/_static']
 
-# Sidebar and navigation options
-html_theme_options = {
-    "navigation_depth": 2,    
-    "collapse_navigation": True,
-    "sticky_navigation": True,
-    "titles_only": False,
-}
-
-# link at the top right of each page
-html_context = {
-    "display_github": True,
-    "github_user": "dindagustiayu",
-    "github_repo": "DTF-toolkit",
-    "github_version": "main",  
-    "conf_py_path": "/docs/source/",
-}
-
-
+# -- Options for EPUB output
+epub_show_urls = 'footnote'
