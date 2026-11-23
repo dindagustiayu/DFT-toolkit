@@ -46,7 +46,7 @@ Links:
 ------
 
    **Reference Manager**
-   `Zotero <>`_
+   `Zotero <https://www.zotero.org/>`_
 
 Supports:
 ---------
