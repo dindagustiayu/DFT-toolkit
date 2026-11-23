@@ -16,7 +16,9 @@ release = '2026'
 
 extensions = ['myst_parser']
 
+
 # templates_path = ['source/_templates']
+root_doc = 'source/index'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**/.ipynb_checkpoints']
 
 language = 'en'
@@ -46,6 +48,7 @@ html_context = {
     "github_user": "dindagustiayu",
     "github_repo": "DTF-toolkit",
     "github_version": "main",  
-    "conf_py_path": "/docs/",
+    "conf_py_path": "/source/",
 }
+
 
