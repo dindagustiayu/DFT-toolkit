@@ -30,7 +30,7 @@ language = 'en'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['source']
+html_static_path = ['source/_static']
 
 # Sidebar and navigation options
 html_theme_options = {
