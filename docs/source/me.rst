@@ -7,7 +7,11 @@ Dinda Gusti Ayu
     2020.09-2022.08
         M.S    `Universitas Sumatera Utara <https://www.usu.ac.id/id>`_ (Sumatera Utara, Indonesia)
 
-    Interested in disordered materials, machine learning potential, and solid-state chemistry.
+
+Research focus
+---------------
+
+    Interested in disorder in crystalline materials, machine learning potential, and solid-state chemistry.
 
     Email: dindagustiayuedu@gmail.com; or materials@dindagustiayu.com
 

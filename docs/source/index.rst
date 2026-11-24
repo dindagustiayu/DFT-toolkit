@@ -3,22 +3,57 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-DFT Toolkit documentation!
-=========================
+Welcome to DFT toolkit documentation!
+======================================
 
-About me:
+About me
 ---------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    me
 
-Tools:
+Tools
 -------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
-   tools/periodic_table.rst
-   tools/unit_convert.rst
+   tools/periodic_table
+   tools/unit_convert
+
+Scripts and codes
+-------------------
+
+.. toctree::
+   :maxdepth: 3
+
+   scripts/dft
+   scripts/spect
+   scripts/ml
+   scripts/python
+
+Tutorials
+----------
+
+.. toctree::
+   :maxdepth: 3
+
+   tutorials/latex
+
+Links:
+-------
+
+   **Reference Manager**
+   `Zotero <https://www.zotero.org/>`_
+
+
+Supports
+---------
+
+   **This website is created using Sphinx**
+
+   `Here is a simple tutor of Sphinx <https://pythonhosted.org/an_example_pypi_project/sphinx.html>`_
+
+   

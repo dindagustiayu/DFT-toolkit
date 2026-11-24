@@ -1,23 +1,36 @@
 Periodic Table
 ===============
 
-1. PubChem
-    https://pubchem.ncbi.nlm.nih.gov/periodic-table/
 
-.. figure:: _static/periodic_elements.png
+1. Periodic table of crystal structures of the elements, University of California, Irvine
+
+
+.. figure:: ../_static/crystal_structure.png
    :align: center
-   :alt: Figure. Periodic Table of Elements with Metal/ Metalloid/ NonMetal Descriptions.
+   :alt:
+   :target: https://www.chem.uci.edu/
 
-2. Corn Research Group
-    `University of California, Irvine <https://www.chem.uci.edu/>`_
 
-.. figure:: _static/crystal_structure.png
+   *Figure. Crystal Structures of The Elements*.
+
+::
+
+2. Periodic Table of Elements, PubChem
+
+.. figure:: ../_static/periodic_elements.png
    :align: center
-   :alt: Figure. Crystal Structures of The Elements
+   :alt:
+   :target: https://pubchem.ncbi.nlm.nih.gov/periodic-table/
 
-3. Anthropic (Claude Sonnet 5.5)
-    `Large language model <https://claude.ai/>`_
+   *Figure. Periodic Table of Elements with Metal/ Metalloid/ NonMetal Descriptions*.
 
-.. figure:: _static/periodic_software.png
+::
+
+3. Table of scientific python tools, large language model Anthropic (Claude Sonnet 5.5)
+
+.. figure:: ../_static/periodic_software.png
    :align: center
-   :alt: Figure. Periodic Table of Scientific Python Software
+   :alt: 
+   :target: https://claude.ai/
+
+   *Figure. Periodic Table of Scientific Python Software*.

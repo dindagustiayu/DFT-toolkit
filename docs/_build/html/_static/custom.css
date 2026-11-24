@@ -1,0 +1,27 @@
+.download-box {
+  background: linear-gradient(#f3ee9c, #dcd674);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 10px 0;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.download-box a.reference.download {
+  font-family: monospace;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+
+.download-box a.reference.download::before {
+  content: "\2B07";
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.download-box a.reference.download code,
+.download-box a.reference.download span {
+  font-family: inherit;
+  color: inherit;
+}
