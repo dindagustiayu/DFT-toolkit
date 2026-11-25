@@ -58,6 +58,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../scripts/spect.html#scripts">Scripts</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">TD-DFT</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tddft-py">tddft.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#discussion">discussion</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="py_ftir.html">Simulated FT-IR spectra</a></li>
@@ -101,9 +102,105 @@
 </div>
 <section id="tddft-py">
 <h2>tddft.py<a class="headerlink" href="#tddft-py" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+<span class="c1"># edit by dindagustiayuedu@gmail.com</span>
+
+<span class="c1"># Import package</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span><span class="p">,</span> <span class="n">dft</span><span class="p">,</span> <span class="n">tddft</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="c1"># set basis set</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s2">&quot;-----&quot;</span>
+
+<span class="c1"># Set DFT functional</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">dft</span><span class="o">.</span><span class="n">RKS</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">xc</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># initialize the mf object in solvent</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">DDCOSMO</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">with_solvent</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="mf">4.8069</span> <span class="c1"># example: chloroform</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="c1"># setup TDDFT</span>
+<span class="n">td</span> <span class="o">=</span> <span class="n">tddft</span><span class="o">.</span><span class="n">TDDFT</span><span class="p">(</span><span class="n">mf</span><span class="p">)</span>
+
+<span class="c1"># set type and number of states required</span>
+<span class="n">td</span><span class="o">.</span><span class="n">singlet</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># run TDDFT</span>
+<span class="n">td</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+
+<span class="c1"># Analyze to show a table of excitations</span>
+<span class="n">td</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
+
+<span class="c1"># Plot spectrum</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_absorption</span><span class="p">(</span><span class="n">td_obj</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cst</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+    <span class="c1"># get transition can convert to eV</span>
+    <span class="n">transitions</span> <span class="o">=</span> <span class="n">td_obj</span><span class="o">.</span><span class="n">e</span> <span class="o">*</span> <span class="mf">27.2114</span>
+
+    <span class="c1"># get oscilator strengths</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">td_obj</span><span class="o">.</span><span class="n">oscillator_strength</span><span class="p">()</span>
+
+    <span class="c1"># get minimum and miximum x - value for plot</span>
+    <span class="n">minval</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">])</span> <span class="o">-</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">sigma</span>
+    <span class="n">maxval</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">])</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">sigma</span>
+
+    <span class="c1"># number of data points in line</span>
+    <span class="n">npts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">maxval</span> <span class="o">-</span> <span class="n">minval</span><span class="p">)</span> <span class="o">/</span> <span class="n">step</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># generating the plot</span>
+    <span class="n">eneval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minval</span><span class="p">,</span> <span class="n">maxval</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+    <span class="n">lambdaval</span> <span class="o">=</span> <span class="p">[</span><span class="n">cst</span><span class="o">.</span><span class="n">h</span> <span class="o">*</span> <span class="n">cst</span><span class="o">.</span><span class="n">c</span> <span class="o">/</span> <span class="p">(</span><span class="n">val</span> <span class="o">*</span> <span class="n">cst</span><span class="o">.</span><span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.e9</span>
+                <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">eneval</span><span class="p">]</span> <span class="c1"># in nm</span>
+
+    <span class="c1"># sum of gaussian functiona</span>
+    <span class="n">spectra</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">transitions</span><span class="p">)):</span>
+        <span class="n">spectra</span> <span class="o">+=</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">eneval</span><span class="p">,</span> <span class="n">transitions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="n">spectra</span> <span class="o">/=</span> <span class="n">spectra</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="c1"># plot the spectrum</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lambdaval</span><span class="p">,</span> <span class="n">spectra</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&quot;Simulation&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;wavelength (nm)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Absorption (au)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;tddft.svg&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the absorption from td</span>
+<span class="n">plot_absorption</span><span class="p">(</span><span class="n">td</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>For example the UV-visible spectra of 2-Chloro-3-quinolinecarboxaldehyde molecule obtained by b3lyp/6-31+g** dft calculation:</p>
-<figure class="align-center">
-<img alt="vib_scripts/_static/tddft_C10H6ClNO.svg" src="vib_scripts/_static/tddft_C10H6ClNO.svg" />
+<figure class="script-out align-center">
+<img alt="../_images/tddft_C10H6ClNO.svg" src="../_images/tddft_C10H6ClNO.svg" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-csv docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a6397b152f2f47db3bdff6cf7b9e6866/Abs10ns_C10H6ClNO.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">output</span> <span class="pre">file:</span> <span class="pre">Abs_C10H6ClNO.csv</span></code></a></p>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="discussion">
+<h2>discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<img alt="" src="../_images/uv_vis.png" />
+<figcaption>
+<p><span class="caption-text">Python packages vs Gaussian software simulations of 2-Chloro-3-quinolinecarboxaldehyde UV-vis spectra.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
 </figure>
 </section>
 </section>

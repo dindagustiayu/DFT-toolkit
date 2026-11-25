@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calculate interatomic distance &mdash; DFT Toolkit 3.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=671bf353" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=b576230a"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DFT Toolkit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../me.html">Dinda Gusti Ayu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/periodic_table.html">Periodic Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/unit_convert.html">Unit Conversion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/dft.html">Density-functional theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/spect.html">Molecular vibrational spectra</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DFT Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">calculate interatomic distance</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/dft_scripts/.ipynb_checkpoints/py_ibo-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="calculate-interatomic-distance">
+<h1>calculate interatomic distance<a class="headerlink" href="#calculate-interatomic-distance" title="Link to this heading"></a></h1>
+<p>This page contains a Python script to measure the bond lengths and bond angles of a molecule from its optimized XYZ geometry using RDKit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script requires <a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.rdMolTransforms.html">RDKit transforms module</a> Python library. It assigns the bonding connectivity from the atomic coordinates, and evaluate the interatomic distances (bond lengths, in angstrom) and the angles by three bonded atoms (bond angles, in degrees).</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+<span class="c1"># edit by materials@dindagustiayu.com</span>
+
+<span class="c1"># Import package</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">rdMolTransforms</span> <span class="k">as</span> <span class="n">T</span>
+
+<span class="n">rd</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromXYZFile</span><span class="p">(</span><span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="c1"># Note: python index starts from 0!</span>
+<span class="c1"># calculates the angle</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">GetConformer</span><span class="p">()</span>
+<span class="n">T</span><span class="o">.</span><span class="n">GetBondLength</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># example</span>
+
+<span class="c1"># calculates the angle</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">GetConformer</span><span class="p">()</span>
+<span class="n">T</span><span class="o">.</span><span class="n">GetAngleDeg</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># example</span>
+</pre></div>
+</div>
+<p>For example the Optimized geometrical parameters of 2-Chloro-3-quinolinecarboxaldehyde obtained by B3LYP/6-31+G** densitity functional calculations</p>
+<table class="docutils align-center">
+<tbody>
+<tr class="row-odd"><td><p>Bond length (Å)</p></td>
+<td></td>
+<td></td>
+<td><p>Bond angle (◦</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B3LYP/6-31+G**</p></td>
+<td></td>
+<td><p>Ref(b)</p></td>
+<td><p>B3LYP/6-31+G**</p></td>
+<td></td>
+<td><p>Ref(b)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C1-C6</p></td>
+<td><p>1.388</p></td>
+<td><p>1.377</p></td>
+<td><p>C1-C6-C5</p></td>
+<td><p>120.398</p></td>
+<td><p>120.2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C5-C6</p></td>
+<td><p>1.439</p></td>
+<td><p>1.42</p></td>
+<td><p>C1-C6-H17</p></td>
+<td><p>120.844</p></td>
+<td><p>120.9</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C6-H17</p></td>
+<td><p>1.0995</p></td>
+<td><p>1.087</p></td>
+<td><p>C2-C1-C6</p></td>
+<td><p>120.572</p></td>
+<td><p>120.3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C1-C2</p></td>
+<td><p>1.433</p></td>
+<td><p>1.418</p></td>
+<td><p>C6-C1-H14</p></td>
+<td><p>119.3</p></td>
+<td><p>120.1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C1-H14</p></td>
+<td><p>1.099</p></td>
+<td><p>1.086</p></td>
+<td><p>C5-C6-H17</p></td>
+<td><p>120.844</p></td>
+<td><p>119</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C2-C3</p></td>
+<td><p>1.39</p></td>
+<td><p>1.379</p></td>
+<td><p>C4-C5-C6</p></td>
+<td><p>118.909</p></td>
+<td><p>119.4</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C2-H15</p></td>
+<td><p>1.099</p></td>
+<td><p>1.086</p></td>
+<td><p>C6-C5-C7</p></td>
+<td><p>123.313</p></td>
+<td><p>123.6</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C3-C4</p></td>
+<td><p>1.439</p></td>
+<td><p>1.416</p></td>
+<td><p>C2-C1-H14</p></td>
+<td><p>119.3</p></td>
+<td><p>119.6</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C3-H16</p></td>
+<td><p>1.099</p></td>
+<td><p>1.085</p></td>
+<td><p>C1-C2-C3</p></td>
+<td><p>120.649</p></td>
+<td><p>120.9</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C4-C5</p></td>
+<td><p>1.446</p></td>
+<td><p>1.432</p></td>
+<td><p>C1-C2-H15</p></td>
+<td><p>119.296</p></td>
+<td><p>119.3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C4-N10</p></td>
+<td><p>1.43</p></td>
+<td><p>1.367</p></td>
+<td><p>C3-C2-H15</p></td>
+<td><p>120.055</p></td>
+<td><p>118.8</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C5-C7</p></td>
+<td><p>1.437</p></td>
+<td><p>1.411</p></td>
+<td><p>C2-C3-C4</p></td>
+<td><p>120.097</p></td>
+<td><p>120</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C7-C8</p></td>
+<td><p>1.393</p></td>
+<td><p>1.383</p></td>
+<td><p>C2-C3-H16</p></td>
+<td><p>121.695</p></td>
+<td><p>122</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C7-H18</p></td>
+<td><p>1.102</p></td>
+<td><p>1.087</p></td>
+<td><p>C4-C3-H16</p></td>
+<td><p>118.208</p></td>
+<td><p>118</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C8-C9</p></td>
+<td><p>1.451</p></td>
+<td><p>1.429</p></td>
+<td><p>C3-C4-C5</p></td>
+<td><p>119.375</p></td>
+<td><p>119.3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C8-C12</p></td>
+<td><p>1.531</p></td>
+<td><p>1.488</p></td>
+<td><p>C3-C4-N10</p></td>
+<td><p>117.295</p></td>
+<td><p>118.8</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C9-N10</p></td>
+<td><p>1.348</p></td>
+<td><p>1.298</p></td>
+<td><p>C5-C4-N10</p></td>
+<td><p>123.33</p></td>
+<td><p>122</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C9-Cl11</p></td>
+<td><p>1.825</p></td>
+<td><p>1.77</p></td>
+<td><p>C4-C5-C6</p></td>
+<td><p>118.909</p></td>
+<td><p>117.1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C12-O13</p></td>
+<td><p>1.256</p></td>
+<td><p>1.217</p></td>
+<td><p>C4-C5-C7</p></td>
+<td><p>117.778</p></td>
+<td><p>118.4</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C12-H19</p></td>
+<td><p>1.123</p></td>
+<td><p>1.104</p></td>
+<td><p>C5-C7-C8</p></td>
+<td><p>120.615</p></td>
+<td><p>120.9</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>C5-C7-H18</p></td>
+<td><p>120.603</p></td>
+<td><p>121.1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>C8-C7-H18</p></td>
+<td><p>118.783</p></td>
+<td><p>118</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>C7-C8-C9</p></td>
+<td><p>116.575</p></td>
+<td><p>116.4</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>C7-C8-C12</p></td>
+<td><p>120.138</p></td>
+<td><p>118.8</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>C8-C9-C12</p></td>
+<td><p>123.287</p></td>
+<td><p>124.8</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>C8-C9-N10</p></td>
+<td><p>127.588</p></td>
+<td><p>125.3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>C8-C9-Cl11</p></td>
+<td><p>117.839</p></td>
+<td><p>119</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>C8-C12-O13</p></td>
+<td><p>122.949</p></td>
+<td><p>122.7</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>C8-C12-H19</p></td>
+<td><p>113.364</p></td>
+<td><p>116.2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>N10-C9-Cl11</p></td>
+<td><p>114.573</p></td>
+<td><p>115.7</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>O13-C12-H19</p></td>
+<td><p>123.687</p></td>
+<td><p>121.1</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Abbreviations</strong>:</div>
+<div class="line">a For numbering of atoms refer to <a class="reference external" href="/_static/C10H6ClNO.svg">figure. 1(a)</a></div>
+<div class="line">b See Ref. ,”(Spectrochimica Acta Part A: Molecular and Biomolecular Spectroscopy, 2015, 148, 163-174)</div>
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-csv docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/7f0c31a7726ca1a1bf5024b639656b1d/geom_C10H6ClNO.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">output</span> <span class="pre">file:</span> <span class="pre">geom_C10H6ClNO.csv</span></code></a></p>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Dinda Gusti Ayu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -12,7 +12,7 @@ This page contains a Python script to calculate a Mulliken atomic charges on the
 mullpop.py
 ------------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -70,6 +70,7 @@ For example the Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde mo
          Atom 16 => Charge 0.08935584367632987
          Atom 17 => Charge 0.10500120992584472
          Atom 18 => Charge 0.08496990976095753
+
 
 
 Table. Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde calculated by B3LYP/6-31+G** method.

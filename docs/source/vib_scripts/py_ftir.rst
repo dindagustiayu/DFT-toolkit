@@ -1,5 +1,5 @@
 Simulated FT-IR spectra
-========
+==========================
 
 This page contains a Python script to calculate the harmonic frequencies and IR intensities for FT-IR simulation. 
 
@@ -12,7 +12,7 @@ This page contains a Python script to calculate the harmonic frequencies and IR 
 script
 ----------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -52,8 +52,32 @@ script
 
 For example simulated FT-IR spectra of 2-Chloro-3-quinolinecarboxaldehyde molecule obtained by b3lyp/6-31+g** dft calculation:
 
-.. figure:: _static/ir_C10H6ClNO.svg
+.. rst-class:: script-out
+
+  .. figure:: /_static/IR_FWHM_C10H6ClNO.svg
+     :align: center
+
+
+|
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-csv
+
+      :download:`Download output file: IR_C10H6ClNO.csv </data/IR_C10H6ClNO.csv>`
+
+|
+|
+
+discussion
+--------------
+
+.. figure:: /_static/ft-ir.png
    :align: center
+   :alt:
+   
 
-
+   Python packages vs Gaussian software simulations of 2-Chloro-3-quinolinecarboxaldehyde FT-IR spectra.
 

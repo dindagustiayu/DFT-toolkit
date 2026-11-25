@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../scripts/ml.html" />
+    <link rel="next" title="&lt;no title&gt;" href="../tutorials/latex.html" />
     <link rel="prev" title="TD-DFT" href="py_tddft.html" /> 
 </head>
 
@@ -59,6 +59,7 @@
 <li class="toctree-l3"><a class="reference internal" href="py_tddft.html">TD-DFT</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Simulated FT-IR spectra</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#script">script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#discussion">discussion</a></li>
 </ul>
 </li>
 </ul>
@@ -101,9 +102,66 @@
 </div>
 <section id="script">
 <h2>script<a class="headerlink" href="#script" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+<span class="c1"># edit by dindagustiayuedu@gmail.com</span>
+
+<span class="c1"># Import packages</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">dft</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf.prop</span><span class="w"> </span><span class="kn">import</span> <span class="n">infrared</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf.hessian</span><span class="w"> </span><span class="kn">import</span> <span class="n">thermo</span>
+
+<span class="c1"># Create the pyscf molecule</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span> <span class="o">=</span><span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s2">&quot;-----&quot;</span>
+
+<span class="c1"># set the functional</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">dft</span><span class="o">.</span><span class="n">RKS</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">xc</span> <span class="o">=</span> <span class="s2">&quot;----&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="c1"># Run infrared calculation, invokes hessian, though calling hessian</span>
+<span class="n">mf_ir</span> <span class="o">=</span> <span class="n">infrared</span><span class="o">.</span><span class="n">rks</span><span class="o">.</span><span class="n">Infrared</span><span class="p">(</span><span class="n">mf</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">mf_ir</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1"># To perform thermo calculation, use the hessian object inside mf_ir</span>
+<span class="n">thermo</span><span class="o">.</span><span class="n">dump_thermo</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">thermo</span><span class="o">.</span><span class="n">thermo</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">mf_ir</span><span class="o">.</span><span class="n">vib_dict</span><span class="p">[</span><span class="s2">&quot;freq_au&quot;</span><span class="p">],</span> <span class="mf">298.15</span><span class="p">,</span> <span class="mi">101325</span><span class="p">))</span>
+
+<span class="c1"># Plotting figure and save in csv file from tutorial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">mf_ir</span><span class="o">.</span><span class="n">plot_ir</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.956</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;IR Spectra of molecule scaled&quot;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="sa">r</span><span class="s2">&quot;B3LYP/631G+G** with scaling factor 0.956 and Lorentz broadening with $\mathrm{FWHM=100 cm^{-1}}$&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ftir_simulation.svg&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>For example simulated FT-IR spectra of 2-Chloro-3-quinolinecarboxaldehyde molecule obtained by b3lyp/6-31+g** dft calculation:</p>
-<figure class="align-center">
-<img alt="vib_scripts/_static/ir_C10H6ClNO.svg" src="vib_scripts/_static/ir_C10H6ClNO.svg" />
+<figure class="script-out align-center">
+<img alt="../_images/IR_FWHM_C10H6ClNO.svg" src="../_images/IR_FWHM_C10H6ClNO.svg" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-csv docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/f5ec352186dfa6b07d79af6e3a4c5d59/IR_C10H6ClNO.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">output</span> <span class="pre">file:</span> <span class="pre">IR_C10H6ClNO.csv</span></code></a></p>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="discussion">
+<h2>discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<img alt="" src="../_images/ft-ir.png" />
+<figcaption>
+<p><span class="caption-text">Python packages vs Gaussian software simulations of 2-Chloro-3-quinolinecarboxaldehyde FT-IR spectra.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
 </figure>
 </section>
 </section>
@@ -113,7 +171,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="py_tddft.html" class="btn btn-neutral float-left" title="TD-DFT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../scripts/ml.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../tutorials/latex.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

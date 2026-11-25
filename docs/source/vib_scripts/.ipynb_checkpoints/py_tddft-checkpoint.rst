@@ -12,7 +12,7 @@ This page contains a Python script to calculate the electronic excitation energi
 tddft.py
 ----------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -91,8 +91,33 @@ tddft.py
 
 For example the UV-visible spectra of 2-Chloro-3-quinolinecarboxaldehyde molecule obtained by b3lyp/6-31+g** dft calculation:
 
-.. figure:: _static/tddft_C10H6ClNO.svg
+.. rst-class:: script-out
+
+  .. figure:: /_static/tddft_C10H6ClNO.svg
+     :align: center
+
+
+|
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-csv
+
+      :download:`Download output file: Abs_C10H6ClNO.csv </data/Abs10ns_C10H6ClNO.csv>`
+
+
+
+|
+|
+
+discussion
+--------------
+
+.. figure:: /_static/uv_vis.png
    :align: center
+   :alt:
+   
 
-
-
+   Python packages vs Gaussian software simulations of 2-Chloro-3-quinolinecarboxaldehyde UV-vis spectra.

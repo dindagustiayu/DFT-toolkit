@@ -31,12 +31,14 @@ Scripts and codes
 
    scripts/dft
    scripts/spect
-   scripts/ml
-   scripts/python
+
 
 
 Gallery of QC visualizations
 ------------------------------
+
+.. toctree::
+   :maxdepth: 1
 
 .. raw:: html
 
@@ -97,6 +99,63 @@ Gallery of QC visualizations
 
    <div class="sphx-glr-thumbnail-title">Molecular Electrostatic Potential</div>
    </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="chanonical molecular, visualize lon-pair position">
+
+.. image:: /_static/LP_C10H6ClNO.png
+   :alt: IBO
+
+:doc:`dft_scripts/py_ibo`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">Intrinsic Bonding Orbitals</div>
+   </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="visualize the distribution of electron density">
+
+.. image:: /_static/mull_charge.png
+   :alt: IAO
+
+:doc:`dft_scripts/py_mullpop`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">Mulliken Atomic Charge</div>
+   </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="here I plot UV-vis simulation with 10 n states">
+
+.. image:: /_static/tddft_C10H6ClNO.svg
+   :alt: TDDFT
+
+:doc:`vib_scripts/py_tddft`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">TDDFT</div>
+   </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="here I plot FT-IR simulation with scaling factor and Lorentz broadening with FWHM">
+
+.. image:: /_static/IR_FWHM_C10H6ClNO.svg
+   :alt: FT-IR
+
+:doc:`vib_scripts/py_ftir`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">FT-IR simulation</div>
+   </div>
+
 .. raw:: html
 
    </div>

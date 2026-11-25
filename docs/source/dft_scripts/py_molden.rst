@@ -51,6 +51,14 @@ This page contains a Python script to calculate molecular orbitals and identify 
 For example the calculated HOMO, LUMO energies and HOMO-LUMO energy gap for 2-Chloro-3-quinolinecarboxaldehyde obtained by b3lyp/6+31+g** method.
 
 
+.. rst-class:: script-out
+
+  .. figure:: /_static/mol_orbt_vis.png
+     :align: center
+     :alt:
+
+|
+
 .. csv-table:: 
    :file: /data/total_energy.csv
    :header-rows: 0
