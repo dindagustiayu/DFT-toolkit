@@ -1,27 +1,96 @@
-.download-box {
-  background: linear-gradient(#f3ee9c, #dcd674);
-  border-radius: 8px;
-  padding: 8px 10px;
-  margin: 10px 0;
-  display: inline-block;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+.script-out {
+  text-align: left;        
+  position: relative;
+  margin: 16px 0;
+  padding-top: 24px;
 }
 
-.download-box a.reference.download {
+.script-out::before {
+  content: "Out:";
+  position: absolute;
+  top: 0;
+  left: 0;
   font-family: monospace;
   font-weight: bold;
-  color: #000000;
-  text-decoration: none;
+  font-size: 14px;
+  color: #d9534f;
 }
 
-.download-box a.reference.download::before {
-  content: "\2B07";
-  margin-right: 10px;
-  font-size: 1.2em;
+table.no-header thead {
+  display: none;
 }
 
-.download-box a.reference.download code,
-.download-box a.reference.download span {
-  font-family: inherit;
-  color: inherit;
+.sphx-glr-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 4 figures per row */
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.sphx-glr-thumbcontainer {
+  position: relative;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.sphx-glr-thumbcontainer:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+}
+
+.sphx-glr-thumbcontainer img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* the link covers the whole card, its text is hidden */
+.sphx-glr-thumbcontainer p {
+  margin: 0;
+}
+
+.sphx-glr-thumbcontainer a.reference {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  z-index: 2;
+}
+
+.sphx-glr-thumbnail-title {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #333333;
+}
+
+/* tooltip, like "POV-Ray memberikan struktur kristal" */
+.sphx-glr-thumbcontainer::after {
+  content: attr(tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 220px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.sphx-glr-thumbcontainer:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .sphx-glr-thumbnails { grid-template-columns: repeat(2, 1fr); }
 }

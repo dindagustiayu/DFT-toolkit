@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calculate thermodynamics &mdash; DFT Toolkit 3.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=81781e2c" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=b576230a"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DFT Toolkit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../me.html">Dinda Gusti Ayu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/periodic_table.html">Periodic Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/unit_convert.html">Unit Conversion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/dft.html">Density-functional theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/spect.html">Molecular vibrational spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/python.html">Gallery of QC visualizations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DFT Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">calculate thermodynamics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/dft_scripts/.ipynb_checkpoints/py_therchem-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="calculate-thermodynamics">
+<h1>calculate thermodynamics<a class="headerlink" href="#calculate-thermodynamics" title="Link to this heading"></a></h1>
+<p>This page contains a Python script to calculate the thermodynamic properties using the RRHO and ideal gas approximations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script requires the vibrational frequency results (harmonic frequency or Hessian) and performs thermochemistry properties: heat capacity at <strong>constant volume (Cv), and constant pressure (Cp), internal energy (U), entalphy (H), entrophy (S), and Gibbs free energy (G)</strong>.</p>
+</div>
+<section id="therchem-py">
+<h2>therchem.py<a class="headerlink" href="#therchem-py" title="Link to this heading"></a></h2>
+<p>For example the thermodynamic properties of 2-Chloro-3-quinolinecarboxaldehyde molecule obtained by b3lyp/6-31+g** dft calculation:</p>
+<div class="script-out highlight-text notranslate"><div class="highlight"><pre><span></span>converged SCF energy = -963.33127509007
+Thermodynamic at 100 K
+temperature 100.0000 [K]
+pressure 101325.00 [Pa]
+Rotational constants [GHz] 1.23260 0.48062 0.34579
+Symmetry number 1
+Zero-point energy (ZPE) 0.14011 [Eh]   367861.463 [J/mol]
+                           tot       elec      trans        rot        vib
+Entropy [J/mol/K]       295.040      0.000    151.583    119.129     24.328
+Cv [J/mol/K]             64.474      0.000     12.472     12.472     39.530
+Cp [J/mol/K]             72.788      0.000     20.786     12.472     39.530
+Internal energy [J/mol]                      1247.169   1247.169 369469.346
+Internal energy [Eh]   -963.18960  -963.33128
+Enthalpy [J/mol]                             2078.615   1247.169 369469.346
+Enthalpy [Eh]          -963.18928
+Gibbs free energy [J/mol]                  -13079.708 -10665.726 367036.534
+Gibbs free energy [Eh] -963.20052
+</pre></div>
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-csv docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e760d7128ccf87b56059f2f848176617/ther_C10H6ClNO.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Thermodynamic</span> <span class="pre">properties</span> <span class="pre">data:</span> <span class="pre">ther_C10H6ClNO.csv</span></code></a></p>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Dinda Gusti Ayu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

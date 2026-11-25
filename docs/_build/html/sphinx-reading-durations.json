@@ -1,12 +1,11 @@
 {
-    ".ipynb_checkpoints/index-checkpoint": 0.09,
-    "dft_scripts/.ipynb_checkpoints/py_mep-checkpoint": 0.16,
-    "dft_scripts/py_mep": 0.031,
-    "scripts/.ipynb_checkpoints/dft-checkpoint": 0.022,
-    "tools/.ipynb_checkpoints/periodic_table-checkpoint": 0.115,
-    "usage": 0.035,
-    "vib_scripts/.ipynb_checkpoints/py_ftir-checkpoint": 0.018,
-    "vib_scripts/.ipynb_checkpoints/py_tddft-checkpoint": 0.029,
-    "vib_scripts/py_ftir": 0.025,
-    "vib_scripts/py_tddft": 0.017
+    ".ipynb_checkpoints/index-checkpoint": 0.032,
+    "index": 0.04,
+    "scripts/.ipynb_checkpoints/dft-checkpoint": 0.011,
+    "tools/.ipynb_checkpoints/periodic_table-checkpoint": 0.009,
+    "usage": 0.017,
+    "vib_scripts/.ipynb_checkpoints/py_ftir-checkpoint": 0.009,
+    "vib_scripts/.ipynb_checkpoints/py_tddft-checkpoint": 0.005,
+    "vib_scripts/py_ftir": 0.004,
+    "vib_scripts/py_tddft": 0.01
 }

@@ -7,9 +7,10 @@ This page contains a Python script to calculate the total electronic energies of
 
    This script require the optimized geometry file (in XYZ format). It perfoms SCF calculation for each charge state with the appropiate total charge and spin multiplicity. The vertical ionization potential and the vertical electron affinity are then evaluated from the energy differences between the charged and neutral species. 
 
-- Neutral energy
+Neutral energy
+-------------------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -32,9 +33,10 @@ This page contains a Python script to calculate the total electronic energies of
     neutral_energy = mf.kernel()
 
 
-- Cation energy
+Cation energy
+-----------------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -69,8 +71,10 @@ This page contains a Python script to calculate the total electronic energies of
 
 For example the neutral energy, cation energy, and ionization potential output of 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:
 
-.. code-block:: text
+.. rst-class:: script-out
 
-   Neutral energy = -963.331275090339
-   Cation energy = -963.074757349395 
-   Ionization potential = -6.9802068559233215
+  .. code-block:: text
+
+       Neutral energy = -963.331275090339
+       Cation energy = -963.074757349395 
+       Ionization potential = -6.9802068559233215

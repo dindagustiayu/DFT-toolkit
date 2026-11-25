@@ -6,7 +6,7 @@ This page contains a Python script to calculate the thermodynamic properties usi
 
 .. note::
 
-   This script requires the vibrational frequency results (harmonic frequency or Hessian) and performs thermochemistry properties: heat capacity at constant volume (Cv), and constant pressure (Cp), internal energy (U), entalphy (H), entrophy (S), and Gibbs free energy (G). 
+   This script requires the vibrational frequency results (harmonic frequency or Hessian) and performs thermochemistry properties: heat capacity at **constant volume (Cv), and constant pressure (Cp), internal energy (U), entalphy (H), entrophy (S), and Gibbs free energy (G)**. 
 
 
 therchem.py
@@ -52,29 +52,39 @@ therchem.py
 
 For example the thermodynamic properties of 2-Chloro-3-quinolinecarboxaldehyde molecule obtained by b3lyp/6-31+g** dft calculation:
 
+.. rst-class:: script-out
 
-.. code_block:: text
+   .. code-block:: text
 
-    converged SCF energy = -963.33127509007
-    Thermodynamic at 100 K
-    temperature 100.0000 [K]
-    pressure 101325.00 [Pa]
-    Rotational constants [GHz] 1.23260 0.48062 0.34579
-    Symmetry number 1
-    Zero-point energy (ZPE) 0.14011 [Eh]   367861.463 [J/mol]
-                               tot       elec      trans        rot        vib
-    Entropy [J/mol/K]       295.040      0.000    151.583    119.129     24.328
-    Cv [J/mol/K]             64.474      0.000     12.472     12.472     39.530
-    Cp [J/mol/K]             72.788      0.000     20.786     12.472     39.530
-    Internal energy [J/mol]                      1247.169   1247.169 369469.346
-    Internal energy [Eh]   -963.18960  -963.33128
-    Enthalpy [J/mol]                             2078.615   1247.169 369469.346
-    Enthalpy [Eh]          -963.18928
-    Gibbs free energy [J/mol]                  -13079.708 -10665.726 367036.534
-    Gibbs free energy [Eh] -963.20052
+        converged SCF energy = -963.33127509007
+        Thermodynamic at 100 K
+        temperature 100.0000 [K]
+        pressure 101325.00 [Pa]
+        Rotational constants [GHz] 1.23260 0.48062 0.34579
+        Symmetry number 1
+        Zero-point energy (ZPE) 0.14011 [Eh]   367861.463 [J/mol]
+                                   tot       elec      trans        rot        vib
+        Entropy [J/mol/K]       295.040      0.000    151.583    119.129     24.328
+        Cv [J/mol/K]             64.474      0.000     12.472     12.472     39.530
+        Cp [J/mol/K]             72.788      0.000     20.786     12.472     39.530
+        Internal energy [J/mol]                      1247.169   1247.169 369469.346
+        Internal energy [Eh]   -963.18960  -963.33128
+        Enthalpy [J/mol]                             2078.615   1247.169 369469.346
+        Enthalpy [Eh]          -963.18928
+        Gibbs free energy [J/mol]                  -13079.708 -10665.726 367036.534
+        Gibbs free energy [Eh] -963.20052
 
 
-.. container:: center-btn
 
-   :download: `Download Thermodynamic properties data: ther_C10H6ClNO.csv <data/ther_C10H6ClNO.csv>`_
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-csv
+
+      :download:`Download Thermodynamic properties data: ther_C10H6ClNO.csv </data/ther_C10H6ClNO.csv>`
+
+
 

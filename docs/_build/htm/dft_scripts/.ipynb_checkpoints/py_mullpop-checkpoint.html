@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyscf tools for Mulliken atomic charge &mdash; DFT Toolkit 3.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=81781e2c" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=b576230a"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DFT Toolkit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../me.html">Dinda Gusti Ayu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/periodic_table.html">Periodic Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/unit_convert.html">Unit Conversion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/dft.html">Density-functional theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/spect.html">Molecular vibrational spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/python.html">Gallery of QC visualizations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DFT Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyscf tools for Mulliken atomic charge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/dft_scripts/.ipynb_checkpoints/py_mullpop-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyscf-tools-for-mulliken-atomic-charge">
+<h1>pyscf tools for Mulliken atomic charge<a class="headerlink" href="#pyscf-tools-for-mulliken-atomic-charge" title="Link to this heading"></a></h1>
+<p>This page contains a Python script to calculate a Mulliken atomic charges on the SCF density.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script performs a SCF calculation and carries out a Mulliken population analysis on the resulting density matrix.  The resulting charges describe the distribution of electron density to identify electron rich and electron-deficient atoms.</p>
+</div>
+<section id="mullpop-py">
+<h2>mullpop.py<a class="headerlink" href="#mullpop-py" title="Link to this heading"></a></h2>
+<p>For example the Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde molecule:</p>
+<div class="script-out highlight-text notranslate"><div class="highlight"><pre><span></span>converged SCF energy = -963.331275090069
+ Atom 0 =&gt; Charge -0.07155556667722429
+ Atom 1 =&gt; Charge -0.06938306534595551
+ Atom 2 =&gt; Charge -0.06691020432142292
+ Atom 3 =&gt; Charge 0.07877331047931868
+ Atom 4 =&gt; Charge -0.007440620001702314
+ Atom 5 =&gt; Charge -0.06941163513276205
+ Atom 6 =&gt; Charge -0.05317444608919786
+ Atom 7 =&gt; Charge -0.023123207928326117
+ Atom 8 =&gt; Charge 0.11425268016752899
+ Atom 9 =&gt; Charge -0.20339105032427351
+ Atom 10 =&gt; Charge -0.11792333805241739
+ Atom 11 =&gt; Charge 0.08462452045148172
+ Atom 12 =&gt; Charge -0.1577599824742908
+ Atom 13 =&gt; Charge 0.08983387163816325
+ Atom 14 =&gt; Charge 0.09111122241361247
+ Atom 15 =&gt; Charge 0.1021505478343313
+ Atom 16 =&gt; Charge 0.08935584367632987
+ Atom 17 =&gt; Charge 0.10500120992584472
+ Atom 18 =&gt; Charge 0.08496990976095753
+</pre></div>
+</div>
+<table class="docutils align-center" id="id1">
+<caption><span class="caption-text">Mulliken Atomic Charge</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Table 5. Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde calculated by B3LYP/6-31+G** method.</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No.</p></td>
+<td><p>Atom</p></td>
+<td><p>Charge</p></td>
+<td><p>No.</p></td>
+<td><p>Atom</p></td>
+<td><p>Charge</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>C</p></td>
+<td><p>-0.0715</p></td>
+<td><p>11</p></td>
+<td><p>Cl</p></td>
+<td><p>-0.1179</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>C</p></td>
+<td><p>-0.0693</p></td>
+<td><p>12</p></td>
+<td><p>C</p></td>
+<td><p>0.0846</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>C</p></td>
+<td><p>-0.0669</p></td>
+<td><p>13</p></td>
+<td><p>O</p></td>
+<td><p>-0.1577</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>C</p></td>
+<td><p>0.0787</p></td>
+<td><p>14</p></td>
+<td><p>H</p></td>
+<td><p>0.0898</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>C</p></td>
+<td><p>-0.0074</p></td>
+<td><p>15</p></td>
+<td><p>H</p></td>
+<td><p>0.0911</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>C</p></td>
+<td><p>-0.0694</p></td>
+<td><p>16</p></td>
+<td><p>H</p></td>
+<td><p>0.1021</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>C</p></td>
+<td><p>-0.0531</p></td>
+<td><p>17</p></td>
+<td><p>H</p></td>
+<td><p>0.0893</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>C</p></td>
+<td><p>-0.0231</p></td>
+<td><p>18</p></td>
+<td><p>H</p></td>
+<td><p>0.105</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>C</p></td>
+<td><p>0.1142</p></td>
+<td><p>19</p></td>
+<td><p>H</p></td>
+<td><p>0.0849</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>N</p></td>
+<td><p>-0.2033</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-csv docutils container">
+<p><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Mulliken</span> <span class="pre">file:</span> <span class="pre">mull_C10H6ClNO.csv</span></code></p>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Dinda Gusti Ayu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

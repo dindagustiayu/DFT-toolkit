@@ -9,7 +9,8 @@
   <title>calculate ionization &mdash; DFT Toolkit 3.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9789ac2e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=ec8a606f" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -17,6 +18,7 @@
       <script src="../../_static/documentation_options.js?v=b576230a"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -85,18 +87,70 @@
 <p class="admonition-title">Note</p>
 <p>This script require the optimized geometry file (in XYZ format). It perfoms SCF calculation for each charge state with the appropiate total charge and spin multiplicity. The vertical ionization potential and the vertical electron affinity are then evaluated from the energy differences between the charged and neutral species.</p>
 </div>
-<ul class="simple">
-<li><p>Neutral energy</p></li>
-</ul>
-<ul class="simple">
-<li><p>Cation energy</p></li>
-</ul>
+<section id="neutral-energy">
+<h2>Neutral energy<a class="headerlink" href="#neutral-energy" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+<span class="c1"># edit by materials@dindagustiayu.com</span>
+
+<span class="c1"># import directories</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span>
+
+<span class="c1"># create a molecule object</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span> <span class="o">=</span> <span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the basis set</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># set the functional</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">KS</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">xc</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># neutral energy</span>
+<span class="n">neutral_energy</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="cation-energy">
+<h2>Cation energy<a class="headerlink" href="#cation-energy" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+
+<span class="c1"># import directories</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span>
+
+<span class="c1"># create a molecule object</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span> <span class="o">=</span> <span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the basis set</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1">######## SET CHARGE #########</span>
+<span class="c1"># Set charge</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">charge</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">spin</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># (2*s) where s is the psin. Some code use 2*s + 1</span>
+<span class="c1">############################</span>
+
+<span class="c1"># set the functional</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">KS</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">xc</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># cation energy</span>
+<span class="n">cation_energy</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+
+<span class="c1"># Ionization is the difference in energies</span>
+<span class="c1"># we convert to eV</span>
+
+<span class="p">(</span><span class="n">neutral_energy</span> <span class="o">-</span> <span class="n">cation_energy</span><span class="p">)</span> <span class="o">*</span> <span class="mf">27.2114</span>
+</pre></div>
+</div>
 <p>For example the neutral energy, cation energy, and ionization potential output of 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Neutral energy = -963.331275090339
+<div class="script-out highlight-text notranslate"><div class="highlight"><pre><span></span>Neutral energy = -963.331275090339
 Cation energy = -963.074757349395
 Ionization potential = -6.9802068559233215
 </pre></div>
 </div>
+</section>
 </section>
 
 

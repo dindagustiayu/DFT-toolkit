@@ -34,6 +34,73 @@ Scripts and codes
    scripts/ml
    scripts/python
 
+
+Gallery of QC visualizations
+------------------------------
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnails">
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="Molecular structure with numbering of atoms">
+
+.. image:: /_static/C10H6ClNO.svg
+   :alt: Molecular structure
+
+:doc:`/dft_scripts/py_xyz3d`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">Molecular structure</div>
+   </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="Molecular orbital of LUMO(n)">
+
+.. image:: /_static/molden.png
+   :alt: LUMO(n)
+
+:doc:`/dft_scripts/py_molden`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">Molecular orbitals</div>
+   </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="Interatomic distance of molecule">
+
+.. image:: /_static/angle_bond.png
+   :alt: interatomic distance
+
+:doc:`/dft_scripts/py_angle_length`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">Bond length and Bond angle</div>
+   </div>
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer" tooltip="Electrostatic potential energy surface">
+
+.. image:: /_static/MEP_png.png
+   :alt: mep
+
+:doc:`dft_scripts/py_mep`
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnail-title">Molecular Electrostatic Potential</div>
+   </div>
+.. raw:: html
+
+   </div>
+
 Tutorials
 ----------
 

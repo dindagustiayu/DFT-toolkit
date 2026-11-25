@@ -1,0 +1,152 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Density-functional theory &mdash; DFT Toolkit 3.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=81781e2c" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=b576230a"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DFT Toolkit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../me.html">Dinda Gusti Ayu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/periodic_table.html">Periodic Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/unit_convert.html">Unit Conversion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dft.html">Density-functional theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spect.html">Molecular vibrational spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Gallery of QC visualizations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DFT Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Density-functional theory</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/scripts/.ipynb_checkpoints/dft-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="density-functional-theory">
+<h1>Density-functional theory<a class="headerlink" href="#density-functional-theory" title="Link to this heading"></a></h1>
+<p>First-principles electronic structure calculation based on density-functional theory (DFT) has been widely applied to different fields of chemistry, physics, materials science, and other physical science. Essentially all properties (geometric structures, thermodynamics and kinetics of chemical reactions, electronic, magnetic, and optical properties of molecules and materials) can be calculated by DFT-based methods.</p>
+<p>In spite of tremendous success of DFT, it is often risky to use DFT as <strong>a black box</strong>, we need a certain knowledge about theoritical foundations and its practical implementations to obtain reliable results. The main goal of this documentation is to give an overview on the foundations and practices of DFT that can hopefully provide some helpful guidelines for students or researchers to quickly get familiar with DFT calculations.</p>
+<p>This page contains scripts for practical aspects of DFT implementations.</p>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h2>
+<p>The workflow is following the steps in this illustration.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="scripts/_static/DFT_workflow.jpg"><img alt="scripts/_static/DFT_workflow.jpg" src="scripts/_static/DFT_workflow.jpg" style="width: 400px;" />
+</a>
+</figure>
+</section>
+<section id="useful-python-tools-on-web">
+<h2>Useful Python tools on web<a class="headerlink" href="#useful-python-tools-on-web" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.rdkit.org/docs/Overview.html">RDKit (load molecule coordinate)</a></p></li>
+<li><p><a class="reference external" href="https://pyscf.org/user/index.html">PySCF (electronic structure calculations)</a></p></li>
+<li><p><a class="reference external" href="https://geometric.readthedocs.io/en/latest/">geomeTRIC (molecular geometry optimization)</a></p></li>
+<li><p><a class="reference external" href="http://pymatgen.org">Pymatgen (Python Materials Genomics)</a></p></li>
+<li><p><a class="reference external" href="https://psicode.org/">Psi4 (quantum chemistry)</a></p></li>
+</ul>
+</section>
+<section id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_xyz3d.html">xyz3d.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_ksscf.html">ksscf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_xyzopt.html">xyzopt.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_hesfreq.html">pyscf hessian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_molden.html">molden.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_echarge.html">calculate ionization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_angle_length.html">calculate interatomic distance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_locsymt.html">compute .fchk file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_mep.html">density dan potential MEP 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_mullpop.html">pyscf tools for Mulliken atomic charge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dft_scripts/py_therchem.html">calculate thermodynamics</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Dinda Gusti Ayu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

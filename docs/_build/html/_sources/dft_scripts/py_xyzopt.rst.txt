@@ -5,7 +5,7 @@ This page contains a Python script to optimize the molecular geometry and save t
 
 .. note::
 
-   This script requires `geomeTRIC <https://geometric.readthedocs.io/en/latest/>`_ Python library to update the nuclear coordinates in translation-rotation internal coordinates (TRIC) until the convergence criteria for energy change, gradient and atomic displacement successive steps all fall below prescribed convergence threshold (small enough).
+   This script requires `geomeTRIC <https://geometric.readthedocs.io/en/latest/>`__ Python library to update the nuclear coordinates in translation-rotation internal coordinates (TRIC) until the convergence criteria for energy change, gradient and atomic displacement successive steps all fall below prescribed convergence threshold (small enough).
 
 
 .. code-block:: python
@@ -41,7 +41,7 @@ This page contains a Python script to optimize the molecular geometry and save t
   # save the optimized geometry in XYZ format
   mol_eq.tofile("opt_mol.xyz")
 
-For example the optimize file OF 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:
+For example the optimize file of 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:
 
 .. code-block:: text
 
@@ -68,6 +68,13 @@ For example the optimize file OF 2-Chloro-3-quinolinecarboxaldehyde molecule cal
     H           4.27682010        0.07879290        0.20673122
 
 
-.. container:: download-box
 
-   `Download optimization file: opt_C10H6ClNO.xyz </data/opt_C10H6ClNO.xyz>`_
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-xyz
+
+      :download:`Download optimization file: opt_C10H6ClNO.xyz </data/opt_C10H6ClNO.xyz>`

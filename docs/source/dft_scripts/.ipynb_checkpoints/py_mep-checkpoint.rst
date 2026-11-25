@@ -1,5 +1,5 @@
 density dan potential MEP 3D
-========
+===============================
 
 This page contains a Python script to calculate the molecular electrostatic potential (MEP).
 
@@ -10,9 +10,9 @@ This page contains a Python script to calculate the molecular electrostatic pote
 
 
 mep.py
-------
+-----------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -45,17 +45,29 @@ mep.py
 
 For example the definition of local-symmetry of 2-Chloro-3-quinolinecarboxaldehyde molecule:
 
-.. figure:: _static/ecden_C10H6ClNO.png
-   :align: center
-   :width: 70%
-   :alt: Figure. Molecular electrostatic potential energy surface (MEP) for 2-Chloro-3-quinolinecarboxaldehyde
+.. rst-class:: script-out
+
+  .. figure:: /_static/ecden_C10H6ClNO.png
+     :align: center
+     :alt: Molecular electrostatic potential energy surface (MEP) for 2-Chloro-3-quinolinecarboxaldehyde
+
+|
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-cube
+
+      :download:`Download output file: pot_C10H6ClNO.cube </data/C10H6ClNO.cube>`
 
 
-.. container:: center-btn
+.. only:: html
 
-   :download: `Download mep file: pot_C10H6ClNO.cube <data/C10H6ClNO.cube>`_
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+   .. container:: sphx-glr-download sphx-glr-download-cube
+
+      :download:`Download output file: den_C10H6ClNO.cube </data/den_C10H6ClNO.cube>`
 
 
-.. container:: center-btn
-
-   :download: `Download mep file: den_C10H6ClNO.cube <data/den_C10H6ClNO.cube>`_

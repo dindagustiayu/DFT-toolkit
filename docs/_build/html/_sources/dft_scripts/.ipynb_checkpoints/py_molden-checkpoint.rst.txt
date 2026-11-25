@@ -1,5 +1,5 @@
 molden.py
-========
+===========
 
 This page contains a Python script to calculate molecular orbitals and identify the HOMO and LUMO. 
 
@@ -8,7 +8,7 @@ This page contains a Python script to calculate molecular orbitals and identify 
    This script require the optimized geometry file (in XYZ format). It perfoms SCF calculation, determines the orbital energies and occupations, and locates teh frontier orbitals from the occupied-virtual boundary. The orbitals can be exported for visualizations.
 
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -48,14 +48,22 @@ This page contains a Python script to calculate molecular orbitals and identify 
         molden.orbital_coeff(mol, f1, mf.mo_coeff, ene=mf.mo_energy, occ=mf.mo_occ)
 
 
-For example the atomic orbital components of the frontier molecular orbitals of 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:
+For example the calculated HOMO, LUMO energies and HOMO-LUMO energy gap for 2-Chloro-3-quinolinecarboxaldehyde obtained by b3lyp/6+31+g** method.
 
-.. csv-table:: Total Energy
-   :file: data/total_energy.csv
-   :header-rows: 2
+
+.. csv-table:: 
+   :file: /data/total_energy.csv
+   :header-rows: 0
    :align: center
+   :widths: auto
 
 
-.. container:: center-btn
 
-   :download: `Download mos file: mos_C10H6ClNO.molden <molden_homo_lumo/C10H6ClNO.molden>`_
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-csv
+
+      :download:`Download output file: total_energy_C10H6ClNO.csv</data/total_energy.csv>`
+

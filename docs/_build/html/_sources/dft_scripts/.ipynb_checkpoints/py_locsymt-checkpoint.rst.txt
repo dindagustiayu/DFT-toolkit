@@ -1,18 +1,18 @@
 compute .fchk file
-========
+====================
 
 This page contains a Python script to construct local symmetry coordinates and describe its internal motions.
 
 
 .. note::
 
-   This script require the vibrational frequency results (normal modes or Hessian). It sets up the tranformation matrix between Cartesian displacements and local symmetry coordinates, which are constructed from the internal coodinates (bond stretches, angle bends, and torsion) of the bonded atoms.
+   This script require the vibrational frequency results **(normal modes or Hessian)**. It sets up the tranformation matrix between Cartesian displacements and local symmetry coordinates, which are constructed from the internal coodinates (bond stretches, angle bends, and torsion) of the bonded atoms.
 
 
 locsymt.py
----------
+--------------
 
-.. code_block:: python
+.. code-block:: python
 
     #!/usr/bin/env python
     # coding: utf-8
@@ -50,14 +50,30 @@ locsymt.py
         block(f, "Cartesian Force Constants", 'R', force_const)
 
 
-For example the definition of local-symmetry of 2-Chloro-3-quinolinecarboxaldehyde molecule:
 
-.. csv-table:: Local-symmetry Coordinates
-   :file: data/bond_data.csv
-   :header-rows: 2
+For example Definition of Local Symmetry Coordinates of 2-Chloro-3-quinolinecarboxaldehyde calculated by b3lyp/6-31+g**** density functional calculations:
+
+
+
+.. csv-table:: 
+   :file: /data/locsymt_C10H6ClNO.csv
+   :header-rows: 0
    :align: center
+   :widths: auto
 
 
-.. container:: center-btn
+| **Abbreviations**: ν, stretching; β, in plane bending; ω, out of plane bending; τ, torsion. 
+| *a These symbols are used for description of the normal modes by PED.
+| *b The internal coordinates.
 
-   :download: `Download inter-coordinates file: locsymt_C10H6ClNO.csv <data/locsymt_C10H6ClNO.csv>`_
+|
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+   .. container:: sphx-glr-download sphx-glr-download-csv
+
+      :download:`Download inter-coordinates file: locsymt_C10H6ClNO.csv </data/locsymt_C10H6ClNO.csv>`
+
+

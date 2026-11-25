@@ -9,7 +9,8 @@
   <title>pyscf hessian &mdash; DFT Toolkit 3.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9789ac2e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ec8a606f" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -17,6 +18,7 @@
       <script src="../_static/documentation_options.js?v=b576230a"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -111,8 +113,35 @@
 </div>
 <section id="hesfreq-py">
 <h2>hesfreq.py<a class="headerlink" href="#hesfreq-py" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+<span class="c1"># edit by materials@dindagustiayu.com</span>
+
+<span class="c1"># import directories</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf.hessian</span><span class="w"> </span><span class="kn">import</span> <span class="n">thermo</span>
+
+<span class="c1"># create a molecule object</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span> <span class="o">=</span> <span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the basis set</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># set the functional</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">KS</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">xc</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># run frequency calculation</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">hessian</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">Hessian</span><span class="p">()</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+
+<span class="c1"># getting the frequency data from the calculation</span>
+<span class="n">freq_info</span> <span class="o">=</span> <span class="n">thermo</span><span class="o">.</span><span class="n">harmonic_analysis</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">hessian</span><span class="p">)</span>
+<span class="n">freq_info</span><span class="p">[</span><span class="s2">&quot;freq_wavenumber&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>For example the vibrational frequency output of 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>array([  79.90830344,  103.28997959,  140.65498088,  156.24598564,
+<div class="script-out highlight-text notranslate"><div class="highlight"><pre><span></span>array([  79.90830344,  103.28997959,  140.65498088,  156.24598564,
         214.20037622,  256.58073811,  304.29246766,  352.85442613,
         367.39409411,  415.38440706,  483.81051658,  491.59736461,
         545.53652096,  595.37123   ,  615.62959134,  647.63437088,

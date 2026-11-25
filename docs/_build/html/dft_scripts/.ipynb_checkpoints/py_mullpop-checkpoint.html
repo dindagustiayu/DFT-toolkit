@@ -9,7 +9,8 @@
   <title>pyscf tools for Mulliken atomic charge &mdash; DFT Toolkit 3.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9789ac2e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=ec8a606f" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -17,6 +18,7 @@
       <script src="../../_static/documentation_options.js?v=b576230a"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -88,12 +90,125 @@
 <section id="mullpop-py">
 <h2>mullpop.py<a class="headerlink" href="#mullpop-py" title="Link to this heading"></a></h2>
 <p>For example the Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde molecule:</p>
-<div class="center-btn docutils container">
-<dl class="field-list simple">
-<dt class="field-odd">download<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="data/mull_C10H6ClNO.csv">Download Mulliken file: mull_C10H6ClNO.csv</a></p>
-</dd>
-</dl>
+<div class="script-out highlight-text notranslate"><div class="highlight"><pre><span></span>converged SCF energy = -963.331275090069
+ Atom 0 =&gt; Charge -0.07155556667722429
+ Atom 1 =&gt; Charge -0.06938306534595551
+ Atom 2 =&gt; Charge -0.06691020432142292
+ Atom 3 =&gt; Charge 0.07877331047931868
+ Atom 4 =&gt; Charge -0.007440620001702314
+ Atom 5 =&gt; Charge -0.06941163513276205
+ Atom 6 =&gt; Charge -0.05317444608919786
+ Atom 7 =&gt; Charge -0.023123207928326117
+ Atom 8 =&gt; Charge 0.11425268016752899
+ Atom 9 =&gt; Charge -0.20339105032427351
+ Atom 10 =&gt; Charge -0.11792333805241739
+ Atom 11 =&gt; Charge 0.08462452045148172
+ Atom 12 =&gt; Charge -0.1577599824742908
+ Atom 13 =&gt; Charge 0.08983387163816325
+ Atom 14 =&gt; Charge 0.09111122241361247
+ Atom 15 =&gt; Charge 0.1021505478343313
+ Atom 16 =&gt; Charge 0.08935584367632987
+ Atom 17 =&gt; Charge 0.10500120992584472
+ Atom 18 =&gt; Charge 0.08496990976095753
+</pre></div>
+</div>
+<p>Table. Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde calculated by B3LYP/6-31+G** method.</p>
+<table class="no-header docutils align-center">
+<tbody>
+<tr class="row-odd"><td><p>No.</p></td>
+<td><p>Atom</p></td>
+<td><p>Charge</p></td>
+<td><p>No.</p></td>
+<td><p>Atom</p></td>
+<td><p>Charge</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>C</p></td>
+<td><p>-0.0715</p></td>
+<td><p>11</p></td>
+<td><p>Cl</p></td>
+<td><p>-0.1179</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>C</p></td>
+<td><p>-0.0693</p></td>
+<td><p>12</p></td>
+<td><p>C</p></td>
+<td><p>0.0846</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>C</p></td>
+<td><p>-0.0669</p></td>
+<td><p>13</p></td>
+<td><p>O</p></td>
+<td><p>-0.1577</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>C</p></td>
+<td><p>0.0787</p></td>
+<td><p>14</p></td>
+<td><p>H</p></td>
+<td><p>0.0898</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>C</p></td>
+<td><p>-0.0074</p></td>
+<td><p>15</p></td>
+<td><p>H</p></td>
+<td><p>0.0911</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>C</p></td>
+<td><p>-0.0694</p></td>
+<td><p>16</p></td>
+<td><p>H</p></td>
+<td><p>0.1021</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>C</p></td>
+<td><p>-0.0531</p></td>
+<td><p>17</p></td>
+<td><p>H</p></td>
+<td><p>0.0893</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>C</p></td>
+<td><p>-0.0231</p></td>
+<td><p>18</p></td>
+<td><p>H</p></td>
+<td><p>0.105</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>C</p></td>
+<td><p>0.1142</p></td>
+<td><p>19</p></td>
+<td><p>H</p></td>
+<td><p>0.0849</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>N</p></td>
+<td><p>-0.2033</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-csv docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/a1b2dc4bbf9c037a13443148a5064458/mull_C10H6ClNO.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">output</span> <span class="pre">file:</span> <span class="pre">mull_C10H6ClNO.csv</span></code></a></p>
+</div>
 </div>
 </section>
 </section>

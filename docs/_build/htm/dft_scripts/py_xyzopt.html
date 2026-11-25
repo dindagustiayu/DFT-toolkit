@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xyzopt.py &mdash; DFT Toolkit 3.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=81781e2c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=b576230a"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyscf hessian" href="py_hesfreq.html" />
+    <link rel="prev" title="ksscf.py" href="py_ksscf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DFT Toolkit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../me.html">Dinda Gusti Ayu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/periodic_table.html">Periodic Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/unit_convert.html">Unit Conversion</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../scripts/dft.html">Density-functional theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../scripts/dft.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/dft.html#useful-python-tools-on-web">Useful Python tools on web</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../scripts/dft.html#scripts">Scripts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="py_xyz3d.html">xyz3d.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_ksscf.html">ksscf.py</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">xyzopt.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_hesfreq.html">pyscf hessian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_molden.html">molden.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_echarge.html">calculate ionization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_angle_length.html">calculate interatomic distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_locsymt.html">compute .fchk file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_mep.html">density dan potential MEP 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_mullpop.html">pyscf tools for Mulliken atomic charge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="py_therchem.html">calculate thermodynamics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/spect.html">Molecular vibrational spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/python.html">Gallery of QC visualizations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DFT Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../scripts/dft.html">Density-functional theory</a></li>
+      <li class="breadcrumb-item active">xyzopt.py</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dft_scripts/py_xyzopt.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="xyzopt-py">
+<h1>xyzopt.py<a class="headerlink" href="#xyzopt-py" title="Link to this heading"></a></h1>
+<p>This page contains a Python script to optimize the molecular geometry and save the XYZ coordinates of the molecule in .xyz format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script requires <a class="reference external" href="https://geometric.readthedocs.io/en/latest/">geomeTRIC</a> Python library to update the nuclear coordinates in translation-rotation internal coordinates (TRIC) until the convergence criteria for energy change, gradient and atomic displacement successive steps all fall below prescribed convergence threshold (small enough).</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+<span class="c1"># edit by materials@dindagustiayu.com</span>
+
+<span class="c1"># import directories</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyscf.geomopt.geometric_solver</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize</span>
+
+<span class="c1"># Create the pyscf molecule</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s2">&quot;mol.xyz&quot;</span><span class="p">)</span>
+
+<span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s2">&quot;------&quot;</span>
+
+<span class="c1"># set the functional</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">KS</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">xc</span> <span class="o">=</span> <span class="s1">&#39;-----&#39;</span>
+
+<span class="c1"># Run optimization calculations</span>
+<span class="n">conv_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;convergence_energy&#39;</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="c1"># Eh</span>
+    <span class="s1">&#39;convergence_grms&#39;</span><span class="p">:</span> <span class="mf">3e-4</span><span class="p">,</span>   <span class="c1"># Eh/Bohr</span>
+    <span class="s1">&#39;convergence_gmax&#39;</span><span class="p">:</span> <span class="mf">4.5e-4</span><span class="p">,</span> <span class="c1"># Eh/Bohr</span>
+    <span class="s1">&#39;convergence_drms&#39;</span><span class="p">:</span> <span class="mf">1.2e-3</span><span class="p">,</span> <span class="c1"># Angstrom</span>
+    <span class="s1">&#39;convergence_dmax&#39;</span><span class="p">:</span> <span class="mf">1.8e-3</span><span class="p">,</span> <span class="c1"># Angstrom</span>
+<span class="p">}</span>
+
+<span class="n">mol_eq</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="o">**</span><span class="n">conv_params</span><span class="p">)</span>
+
+<span class="c1"># save the optimized geometry in XYZ format</span>
+<span class="n">mol_eq</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="s2">&quot;opt_mol.xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example the optimize file of 2-Chloro-3-quinolinecarboxaldehyde molecule calculated by b3lyp/6-31+g** DFT:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>19
+XYZ from PySCF
+C          -2.79727423       -0.74451918       -0.31643288
+C          -2.97686748        0.63143861        0.04147588
+C          -1.88063394        1.44383712        0.30498036
+C          -0.54827654        0.90755930        0.21995327
+C          -0.36399380       -0.48057952       -0.14105912
+C          -1.52377802       -1.29030275       -0.40660351
+C           0.98148255       -0.98040700       -0.21561828
+C           2.06423627       -0.14594043        0.05304040
+C           1.75376367        1.22769051        0.40441916
+N           0.53521001        1.79609019        0.50301820
+Cl          3.14667558        2.35131815        0.76317674
+C           3.49343981       -0.69001813       -0.02940198
+O           3.75467180       -1.88082294       -0.33199483
+H          -3.67959239       -1.36672372       -0.51988426
+H          -3.99422681        1.04170253        0.10653421
+H          -1.99842190        2.50068966        0.58075164
+H          -1.38086469       -2.34481108       -0.68064679
+H           1.17554678       -2.03051904       -0.48611291
+H           4.27682010        0.07879290        0.20673122
+</pre></div>
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-xyz docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/f11e1cddfb4193cff13192bfab820f17/opt_C10H6ClNO.xyz"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">optimization</span> <span class="pre">file:</span> <span class="pre">opt_C10H6ClNO.xyz</span></code></a></p>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="py_ksscf.html" class="btn btn-neutral float-left" title="ksscf.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="py_hesfreq.html" class="btn btn-neutral float-right" title="pyscf hessian" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Dinda Gusti Ayu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

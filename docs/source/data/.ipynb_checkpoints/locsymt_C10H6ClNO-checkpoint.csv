@@ -1,5 +1,3 @@
-﻿Table 3. Definition of Local Symmetry Coordinates of 2-Chloro-3-quinolinecarboxaldehyde calculated by B3LYP/6-31+G** density functional calculations,,,
-,,,
 No.(i),Symbol  *a,Definition *b,PED (%)
 STRETCHING,,,
 1,νCH,(R₂ - R₃ - R₄)/√3,94% (3459 cm⁻¹)
@@ -57,7 +55,4 @@ MIXED OUT OF PLANE BENDING AND TORSION,,,
 49,"ωCCCC, τCCCC, τCCNC, ωClCNC",(-ω₄₉ - τ₄₆ + τ₄₃ + τ₄₅ + τ₄₄ - ω₄₈)/√6,43% (679 cm⁻¹); 13% (257 cm⁻¹)
 50,"ωCCCC, τCCCC, τCCCO, ωNCCC",(-ω₄₉ - τ₄₆ + τ₄₇ - τ₄₄ + τ₄₂ + ω₅₁)/√6,51% (416 cm⁻¹); 10% (305 cm⁻¹); 18% (142 cm⁻¹)
 51,"τCCCC, ωClCNC",(-τ₄₇ + τ₄₃ + τ₄₄ + ω₄₈)/√4,67% (546 cm⁻¹)
-,,,
-"Abbreviations: ν, stretching; β, in plane bending; ω, out of plane bending; τ, torsion.",,,
-*a These symbols are used for description of the normal modes by PED.,,,
-*b The internal coordinates.,,,
+
