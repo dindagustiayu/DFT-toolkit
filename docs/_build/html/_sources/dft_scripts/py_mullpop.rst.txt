@@ -48,6 +48,13 @@ For example the Mulliken atomic charges of 2-Chloro-3-quinolinecarboxaldehyde mo
 
 .. rst-class:: script-out
 
+  .. figure:: /_static/mull_charge.png
+     :align: center
+
+     Mulliken atomic charge distribution of 2-Chloro-3-quinolinecarboxaldehyde
+
+|
+
    .. code-block:: text
 
         converged SCF energy = -963.331275090069

@@ -1,0 +1,14 @@
+S.No,Exp. Wavelength (nm),TDDFT/B3LYP/6-31+G**,,,Symmetry,Major contribs
+,,Energy (cm-1),Wavelength (nm),Osc. Strength,,
+,,,,,,
+1,344,23811.2,419.97,0.0001,Singlet A,"HOMO -> LUMO (82%), HOMO -> L+1 (11%)"
+2,-,33478.4,298.7,0.0006,Singlet A,"HOMO -> L+1 (72%), HOMO -> LUMO (14%)"
+3,-,36212.2,276.15,0.0089,Singlet A,"H-1 -> LUMO (53%), H-2 -> LUMO (29%), H-1 -> L+1 (12%)"
+4,-,36587.1,273.32,0.0015,Singlet A,"H-3 -> LUMO (88%), HOMO -> L+1 (10%)"
+5,257,39709.3,251.83,0.0754,Singlet A,"H-1 -> LUMO (39%), H-2 -> LUMO (35%), H-1 -> L+1 (19%)"
+6,234,41254.1,242.4,0.0009,Singlet A,H-3 -> L+1 (92%)
+7,-,45226.3,221.11,0.0006,Singlet A,HOMO -> L+2 (73%)
+8,-,46219.2,216.36,0.3592,Singlet A,"H-1 -> L+1 (38%), H-2 -> LUMO (22%), H-5 -> LUMO (18%), H-2 -> L+1 (12%)"
+9,-,46974.8,212.88,0.0003,Singlet A,H-4 -> LUMO (95%)
+10,-,47605.4,210.06,0.2637,Singlet A,"H-2 -> L+1 (64%), H-1 -> L+1 (17%)"
+,,,,,,

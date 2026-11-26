@@ -96,8 +96,18 @@ For example the UV-visible spectra of 2-Chloro-3-quinolinecarboxaldehyde molecul
   .. figure:: /_static/tddft_C10H6ClNO.svg
      :align: center
 
-
 |
+
+Table summary of UV-vis excitation energy and oscillator strength for 2-Chloro-3-quinolinecarboxaldehyde calculated by B3LYP/6-31+G** method.
+
+
+.. csv-table:: 
+   :file: /data/tddft_summary.csv
+   :header-rows: 0
+   :class: no-header
+   :align: center
+   :widths: auto
+
 
 .. only:: html
 

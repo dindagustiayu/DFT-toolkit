@@ -16,7 +16,7 @@ The workflow is following the steps in this illustration.
    :width: 400
    :align: center
 
-::
+|
 
 
 Useful Python tools on web
@@ -46,4 +46,5 @@ Scripts
    /dft_scripts/py_locsymt
    /dft_scripts/py_mep
    /dft_scripts/py_mullpop
+   /dft_scripts/py_ibo
    /dft_scripts/py_therchem

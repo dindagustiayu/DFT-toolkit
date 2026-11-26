@@ -33,7 +33,6 @@ Scripts and codes
    scripts/spect
 
 
-
 Gallery of QC visualizations
 ------------------------------
 
@@ -102,7 +101,7 @@ Gallery of QC visualizations
 
 .. raw:: html
 
-   <div class="sphx-glr-thumbcontainer" tooltip="chanonical molecular, visualize lon-pair position">
+   <div class="sphx-glr-thumbcontainer" tooltip="chanonical molecular, visualize lon-pair position, and two center bonds">
 
 .. image:: /_static/LP_C10H6ClNO.png
    :alt: IBO

@@ -1,8 +1,6 @@
 {
-    ".ipynb_checkpoints/index-checkpoint": 0.057,
-    "dft_scripts/.ipynb_checkpoints/py_mullpop-checkpoint": 0.068,
-    "dft_scripts/py_mullpop": 0.035,
-    "scripts/.ipynb_checkpoints/dft-checkpoint": 0.015,
+    ".ipynb_checkpoints/index-checkpoint": 0.079,
+    "scripts/.ipynb_checkpoints/dft-checkpoint": 0.158,
     "tools/.ipynb_checkpoints/periodic_table-checkpoint": 0.015,
-    "usage": 0.017
+    "usage": 0.013
 }
